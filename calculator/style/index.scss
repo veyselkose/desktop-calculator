@@ -1,0 +1,199 @@
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  html {
+    font-size: 14px;
+  }
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url("../fonts/IBMPlexSans-100.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../fonts/IBMPlexSans-300.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/IBMPlexSans-400.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+// @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+* {
+  padding: 0px;
+  margin: 0px;
+  user-select: none;
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  font-family: "IBM Plex Sans", sans-serif;
+
+  .calculator {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #000;
+    border-radius: 0.25rem;
+    .calculator-header {
+      -webkit-app-region: drag;
+      flex: 0 0 25px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      .title {
+        font-size: 11px !important;
+      }
+      .btn {
+        width: 10px;
+        height: 10px;
+        background-color: #fff;
+        -webkit-app-region: no-drag;
+        transition: 300ms all;
+        border-radius: 50%;
+        &:first-child {
+          margin-left: auto;
+        }
+        &:not(:first-child) {
+          margin-left: 5px;
+        }
+      }
+      .minimize {
+        margin-left: auto !important;
+        background-color: #f1c40f;
+        &:hover {
+          background-color: darken($color: #f1c40f, $amount: 20);
+        }
+      }
+      .resize {
+        background-color: #27ae60;
+        &:hover {
+          background-color: darken($color: #27ae60, $amount: 20);
+        }
+      }
+      .close {
+        background-color: #e74c3c;
+        &:hover {
+          background-color: darken($color: #e74c3c, $amount: 20);
+        }
+      }
+    }
+    .screen {
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 25%;
+      padding: 15px;
+      .result {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        font-size: 3rem;
+        color: #3effa3;
+        user-select: text;
+
+        font-weight: 300;
+        overflow: hidden;
+      }
+      .last-result {
+        display: flex;
+        visibility: hidden;
+        align-items: center;
+        justify-content: flex-end;
+        font-size: 2rem;
+        font-weight: 100;
+        color: #3effa3;
+        user-select: text;
+        overflow: hidden;
+      }
+    }
+    .cleaner {
+      display: flex;
+      flex: 0 0 10%;
+      padding: 2px;
+      padding-bottom: 0;
+      color: #3effa3;
+      .key {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.4rem;
+        border-radius: 0.25rem;
+        background-color: #2b2b2b;
+        margin: 2px;
+        &:active {
+          position: relative;
+          top: 1px;
+          border-color: #171a21;
+          background-color: #fff;
+        }
+      }
+      .reset {
+      }
+      .backspace {
+        color: #fff73b;
+      }
+    }
+    .wrapper {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 2px;
+      padding-top: 0;
+      .row {
+        display: flex;
+        flex: 1;
+        .key {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #8e8e8f;
+          font-size: 1.4rem;
+          border-radius: 0.25rem;
+          background-color: #1b1b1b;
+          margin: 2px;
+          &:active {
+            position: relative;
+            top: 1px;
+            border-color: #171a21;
+            background-color: #fff;
+            color: #8e8e8f;
+          }
+        }
+        .operator {
+          color: #3effa3;
+          // background-color: #2b2b2b80;
+          background: #2b2b2b;
+        }
+      }
+    }
+  }
+}

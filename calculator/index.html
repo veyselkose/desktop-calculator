@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style/index.css" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div class="calculator">
+      <header class="calculator-header">
+        <span class="title">Calculator</span>
+        <div class="btn minimize"></div>
+        <div class="btn resize"></div>
+        <div class="btn close"></div>
+      </header>
+      <div class="screen">
+        <div class="result">0</div>
+        <div class="last-result">0</div>
+      </div>
+      <div class="cleaner">
+        <div class="key reset">AC</div>
+        <div class="key backspace">⌫</div>
+      </div>
+      <div class="wrapper">
+        <div class="row">
+          <div class="key">7</div>
+          <div class="key">8</div>
+          <div class="key">9</div>
+          <div class="key operator">÷</div>
+        </div>
+        <div class="row">
+          <div class="key">4</div>
+          <div class="key">5</div>
+          <div class="key">6</div>
+          <div class="key operator">×</div>
+        </div>
+        <div class="row">
+          <div class="key">1</div>
+          <div class="key">2</div>
+          <div class="key">3</div>
+          <div class="key operator">-</div>
+        </div>
+        <div class="row">
+          <div class="key dot">.</div>
+          <div class="key">0</div>
+          <div class="key operator">=</div>
+          <div class="key operator">+</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const electron = require("electron")
+      const { ipcRenderer } = electron;
+      document.querySelector(".minimize").addEventListener("click",()=>{
+        ipcRenderer.send("minimize","asdfaf")
+      })
+      document.querySelector(".resize").addEventListener("click",()=>{
+        ipcRenderer.send("resize","asdfaf")
+      })
+      document.querySelector(".close").addEventListener("click",()=>{
+        ipcRenderer.send("close","asdfaf")
+      })
+    </script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
