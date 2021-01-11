@@ -2,7 +2,7 @@
   "name": "calculator-electron",
   "version": "1.0.0",
   "author":"veysel köse",
-  "description": "Calculator with html, css and js.",
+  "description": "Calculator with electron framework",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
